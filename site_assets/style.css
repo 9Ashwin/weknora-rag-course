@@ -43,8 +43,10 @@ html[data-theme="dark"] .hero-art { opacity: .45; }
 .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 64px 24px 100px; text-align: center; animation: rise .8s ease-out both; }
 .hero-badge { display: inline-block; margin-bottom: 34px; padding: 7px 18px; border: 1px solid var(--brand); border-radius: 99px; color: var(--brand); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .hero h1 { margin: 0; font: 600 clamp(56px, 9vw, 104px)/.98 var(--serif); letter-spacing: -.045em; }
-.hero h1 em { color: var(--ink); font-weight: 500; }
-.hero-subtitle { max-width: 780px; margin: 28px auto 0; color: var(--ink-2); font: italic 400 clamp(20px, 2.8vw, 28px)/1.45 var(--serif); }
+.hero h1 em { color: var(--brand); font-weight: 500; font-style: italic; }
+.hero-subtitle { max-width: 700px; margin: 22px auto 0; color: var(--ink-2); font: italic 400 clamp(18px, 2.4vw, 24px)/1.6 var(--serif); }
+.hero-subtitle br { display: none; }
+@media (min-width: 640px) { .hero-subtitle br { display: inline; } }
 .hero-meta { margin: 28px 0 0; color: var(--muted); font-size: 13px; letter-spacing: .06em; }
 .hero-cta { display: inline-flex; gap: 28px; align-items: center; margin-top: 38px; padding: 13px 20px 13px 22px; color: white; background: var(--ink); border-radius: 4px; text-decoration: none; font-size: 14px; transition: transform .2s, background .2s; }
 .hero-cta:hover { transform: translateY(-2px); background: var(--brand-dark); }
@@ -197,3 +199,10 @@ kbd { display: inline-block; min-width: 20px; margin-right: 3px; padding: 2px 5p
 .volume header { display: flex; align-items: center; gap: .65rem; }
 .stage-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 9px; background: var(--brand-soft); flex-shrink: 0; }
 .stage-icon svg { width: 19px; height: 19px; }
+
+
+/* ===== hero 金句 ===== */
+.hero-quote { max-width: 620px; margin: 34px auto 0; padding: 0 8px; }
+.hero-quote p { margin: 0; color: var(--ink-2); font: 400 clamp(15px, 1.8vw, 18px)/1.7 var(--serif); }
+.hero-quote cite { display: block; margin-top: 10px; color: var(--ink-2); font: italic 500 13.5px/1.6 var(--serif); letter-spacing: .02em; }
+.hero-quote::before { content: "“"; display: block; margin-bottom: -6px; color: var(--brand); font: 600 42px/1 var(--serif); opacity: .6; }

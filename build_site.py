@@ -187,7 +187,11 @@ def build_home() -> None:
   <div class="hero-content">
     <div class="hero-badge">{ICONS["shield-check"]}<span>RAG 源码课程 · 18 课</span></div>
     <h1>WeKnora RAG<br><em>从源码系统学 RAG</em></h1>
-    <p class="hero-subtitle">从腾讯开源 WeKnora 源码出发，系统学习 RAG 流水线与完整系统实现</p>
+    <p class="hero-subtitle">从腾讯开源 WeKnora 源码出发，逐环节拆解 RAG 流水线<br>与完整系统实现</p>
+    <blockquote class="hero-quote">
+      <p>RAG 的本质：不是把所有知识塞给模型，而是给它此刻最需要的几块。</p>
+      <cite>you can outsource your thinking, but you cannot outsource your understanding</cite>
+    </blockquote>
     <p class="hero-meta"><span class="meta-item">{ICONS["book-icon"]}18 课</span><span class="meta-item">{ICONS["layers-icon"]}四阶段学习路径</span><span class="meta-item">{ICONS["globe-icon"]}源码逐环节拆解</span></p>
     <a class="hero-cta" href="{page_name('00-course-map.md')}">开始阅读 <span>→</span></a>
   </div>
