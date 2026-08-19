@@ -21,8 +21,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Pandoc
-        run: sudo apt-get update && sudo apt-get install --yes pandoc
+      - name: Install Pandoc (from GitHub Releases, no apt)
+        run: |
+          TAG=$(curl -fsSL https://api.github.com/repos/jgm/pandoc/releases/latest | grep -oP '"tag_name": "\K[^"]+')
+          curl -fsSL -o /tmp/pandoc.deb "https://github.com/jgm/pandoc/releases/download/${TAG}/pandoc-${TAG}-1-amd64.deb"
+          sudo dpkg -i /tmp/pandoc.deb
+          pandoc --version | head -1
 
       - name: Build site
         run: python3 build_site.py
