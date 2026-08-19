@@ -36,7 +36,7 @@
 
 改进的核心原则:**尽量将"模糊检索"转化为"精确检索"**,而且强调是"尽量"而非绝对,从两个层面下手:
 
-1. **用户交互层面提供精确信息**:在对话界面加模块标签栏,用户点"销售管理/生产管理"后提问,后台把该标签传下去缩小检索范围(呼应 0008 课的元数据/标签过滤);
+1. **用户交互层面提供精确信息**:在对话界面加模块标签栏,用户点"销售管理/生产管理"后提问,后台把该标签传下去缩小检索范围(呼应 0009 课的元数据/标签过滤);
 2. **业务逻辑层面提供精确信息**:在业务规则里注入关键词等精确约束。
 
 这直接对应 WeKnora 里 `SearchTarget` 的 `TagIDs` / `ScopeTagIDs`——把"用户交互给的标签"变成检索的精确约束,减少召回噪声。
@@ -70,7 +70,7 @@ metric.NewRougeMetric(true, "rouge-l", "f")    → GenerationMetrics.ROUGEL
 
 ## Worked example
 
-**案例一(查询扩展 + 评估)**:用户问"下面报告中涉及了哪几个行业的案例以及总结各自面临的挑战?"。单点向量查询只覆盖一个语义区域,容易漏。查询扩展指令让 LLM 生成 5 个变体问题,每个独立检索,再合并重排,覆盖不同语义区域。同时用 CR/AR/F 三项指标 + Perfect/Acceptable/Missing/Incorrect 打分标准给系统定量,判断优化是否真有效(这条检索优化正是 0008 课 WeKnora `expandQueries` 的动机)。
+**案例一(查询扩展 + 评估)**:用户问"下面报告中涉及了哪几个行业的案例以及总结各自面临的挑战?"。单点向量查询只覆盖一个语义区域,容易漏。查询扩展指令让 LLM 生成 5 个变体问题,每个独立检索,再合并重排,覆盖不同语义区域。同时用 CR/AR/F 三项指标 + Perfect/Acceptable/Missing/Incorrect 打分标准给系统定量,判断优化是否真有效(这条检索优化正是 0009 课 WeKnora `expandQueries` 的动机)。
 
 **案例二(交互层精确化)**:在对话页加"销售管理/生产管理/库存管理"标签栏,用户点标签再提问,后台把模块信息传给检索,把模糊的全库检索变成"只在该模块内检索"。WeKnora 里就是你点标签 → `SearchTarget` 带上 `TagIDs` → `HybridSearch` 在库层面缩小范围——精准、还省算力。
 
@@ -85,7 +85,7 @@ metric.NewRougeMetric(true, "rouge-l", "f")    → GenerationMetrics.ROUGEL
 <summary>Check answers</summary>
 
 1. 检索类指标评估"捞得准、排得对":`NewRecallMetric`(Recall)、`NewPrecisionMetric`(Precision)、`NewMRRMetric`(MRR)、`NewNDCGMetric(3/10)`、`NewMAPMetric`。生成类指标评估"答得好、没幻觉":`NewBLEUMetric`(BLEU1/2/4)、`NewRougeMetric`(rouge-1/2/l)、另有 Faithfulness / Answer Relevancy(CR/AR/F)。四档:Perfect=1.0、Acceptable=0.75、Missing=0.5、Incorrect=0。
-2. 优先查三个方向:① 检索层——看检索到的上下文里是否混入大量不相关块(查 `Context Precision`),若混入,收紧重排阈值 `RerankThreshold`、提高 `RerankTopK` 提升候选质量,或调 RRF 权重;② 生成层——查提示词是否强约束"只依据给定上下文作答"(呼应 0007 课的引用协议 prompt),未强约束则幻觉会高;③ 数据层——被频繁误引的文档本身质量差(数据质量差,很难靠检索救回来),考虑清洗那张文档或从索引中剔除。衡量手段:对问题集反复跑 `EvaluationService` 的 `EvalDataset`,对比调参前后十项指标。
+2. 优先查三个方向:① 检索层——看检索到的上下文里是否混入大量不相关块(查 `Context Precision`),若混入,收紧重排阈值 `RerankThreshold`、提高 `RerankTopK` 提升候选质量,或调 RRF 权重;② 生成层——查提示词是否强约束"只依据给定上下文作答"(呼应 0008 课的引用协议 prompt),未强约束则幻觉会高;③ 数据层——被频繁误引的文档本身质量差(数据质量差,很难靠检索救回来),考虑清洗那张文档或从索引中剔除。衡量手段:对问题集反复跑 `EvaluationService` 的 `EvalDataset`,对比调参前后十项指标。
 
 </details>
 
@@ -109,7 +109,7 @@ metric.NewRougeMetric(true, "rouge-l", "f")    → GenerationMetrics.ROUGEL
 |         |                                     |                                     | WeKnora 对应                    |
 |---------|-------------------------------------|-------------------------------------|---------------------------------|
 | **层面** | **做法**                            | **效果**                            | **落点**                        |
-| 用户交互层面 | 对话界面加模块标签栏(销售/生产/库存…),用户点标签再提问,把 module 传后端缩小检索范围 | 把全库模糊检索变成"只在该模块内检索",且不影响提问体验 | `SearchTarget` 的 `TagIDs`/`ScopeTagIDs`(0008 课已述) |
+| 用户交互层面 | 对话界面加模块标签栏(销售/生产/库存…),用户点标签再提问,把 module 传后端缩小检索范围 | 把全库模糊检索变成"只在该模块内检索",且不影响提问体验 | `SearchTarget` 的 `TagIDs`/`ScopeTagIDs`(0009 课已述) |
 | 业务逻辑层面 | 在业务规则里注入关键词等精确约束(以关键词为例展开) | 用业务已知的精确信息缩小候选 | 查询重写 prompt / 检索约束       |
 
 实现细节(标签栏方案):前端在表单顶部加 `nav-tabs` 模块标签 + `<input type="hidden" name="module" value="{{module}}">`;后端 `views.py` 用 `request.GET['module']` 取到模块号,据此把检索范围缩到对应模块——和 WeKnora 把"标签"映射进 `SearchTarget` 后 `HybridSearch` 库里缩范围的机制是同一件事。

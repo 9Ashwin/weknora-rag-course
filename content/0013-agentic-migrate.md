@@ -53,7 +53,7 @@
 ```text
 客户"发票金额对不上,订单也还没发货,咋办"
 → ReAct agent(协调器):
-  第 1 步  knowledge_search:查"发票金额不符"政策(0010/0005 混合检索)
+  第 1 步  knowledge_search:查"发票金额不符"政策(0011/0005 混合检索)
   第 2 步  database_query(经 MCP):查订单状态与发票明细
   第 3 步  query_knowledge_graph:查"订单—发票—物流"关系路径
   第 4 步  合并两路结果 → 生成"先解释差额,再给发货进度"的终答 + 引用
