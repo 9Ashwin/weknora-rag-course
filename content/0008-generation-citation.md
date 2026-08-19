@@ -57,7 +57,7 @@
 <summary>Check answers</summary>
 
 1. 三个原因:安全和合规(真实 chunk/知识库 ID 不应暴露给用户或外部系统);防幻觉(模型只能用上下文里出现过的句柄,无法编造来源);状态隔离(句柄一次请求内有效,不跨请求复用)。`ExpandText` 对未知句柄 fail-closed,直接丢弃——宁可不给引用,也不给错误引用。
-2. 张冠李戴通常源于两处:一是 prompt 没要求"引用内联在各论断同一行"(WeKnora 的 `citationEnabledProtocolPrompt` 明确禁止末尾堆引用);二是模型在多个来源共存时混淆归属。可在 prompt 协议里强化"每个 `<ref/>` 紧跟其支撑的句子";对高价值场景可用 groundedness/忠实度指标自动检测"句子与所引用块内容是否一致"(见 0009 课),不合格则触发重生成或提示用户;Agent 工具侧应保证每个检索结果带独立句柄,避免合并时串号。
+2. 张冠李戴通常源于两处:一是 prompt 没要求"引用内联在各论断同一行"(WeKnora 的 `citationEnabledProtocolPrompt` 明确禁止末尾堆引用);二是模型在多个来源共存时混淆归属。可在 prompt 协议里强化"每个 `<ref/>` 紧跟其支撑的句子";对高价值场景可用 groundedness/忠实度指标自动检测"句子与所引用块内容是否一致"(见 0010 课),不合格则触发重生成或提示用户;Agent 工具侧应保证每个检索结果带独立句柄,避免合并时串号。
 
 </details>
 
@@ -68,7 +68,7 @@
 ## Source
 
 - WeKnora 源码:`internal/agent/engine.go`(NewAgentEngine / executeLoop / runReActIteration)、`internal/agent/tools/`(knowledge_search.go)、`internal/modelcontext/citations.go`(sourceProtocolPrompt / CompactPublicCitations / ExpandText / citationStreamExpander)、`internal/modelcontext/sources.go`(sourceRegistry / RegisterSearchResults)
-- 2026 生产要求:引用溯源为可信 RAG 硬指标,配合 groundedness 持续测量(见 0009 课)
+- 2026 生产要求:引用溯源为可信 RAG 硬指标,配合 groundedness 持续测量(见 0010 课)
 
 ## 对话模式与结构化数据
 
