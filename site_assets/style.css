@@ -190,15 +190,6 @@ kbd { display: inline-block; min-width: 20px; margin-right: 3px; padding: 2px 5p
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
 }
 
-/* ===== 首页图标美化 ===== */
-.hero-badge { display: inline-flex; align-items: center; gap: .5rem; }
-.hero-badge svg { width: 18px; height: 18px; }
-.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem 1.5rem; }
-.meta-item { display: inline-flex; align-items: center; gap: .35rem; color: var(--muted); font-size: .9rem; }
-.meta-item svg { width: 15px; height: 15px; }
-.volume header { display: flex; align-items: center; gap: .65rem; }
-.stage-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 9px; background: var(--brand-soft); flex-shrink: 0; }
-.stage-icon svg { width: 19px; height: 19px; }
 
 
 /* ===== hero 金句 ===== */
@@ -206,3 +197,7 @@ kbd { display: inline-block; min-width: 20px; margin-right: 3px; padding: 2px 5p
 .hero-quote p { margin: 0; color: var(--ink-2); font: 400 clamp(15px, 1.8vw, 18px)/1.7 var(--serif); }
 .hero-quote cite { display: block; margin-top: 10px; color: var(--ink-2); font: italic 500 13.5px/1.6 var(--serif); letter-spacing: .02em; }
 .hero-quote::before { content: "“"; display: block; margin-bottom: -6px; color: var(--brand); font: 600 42px/1 var(--serif); opacity: .6; }
+
+
+/* 首页卡片无编号:两列布局,标题不被空列挤压 */
+.chapter-card--flat { grid-template-columns: 1fr 30px; }

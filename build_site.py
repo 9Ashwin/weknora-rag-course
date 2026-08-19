@@ -17,16 +17,6 @@ CONTENT = ROOT / "content"
 OUTPUT = ROOT / "_site"
 REPOSITORY_URL = "https://github.com/9Ashwin/weknora-rag-course"
 
-ICONS = {
-    "book-icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"#d95c41\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"><path d=\"M24 40.5V41L24 10V10.5\"/><path d=\"M24 41C31.0005 36.9995 37.9995 36.9995 45 41V10.0003C37.9995 5.99989 31.0005 5.99989 24 10.0003C16.9995 5.99989 10.0005 5.99989 3 10.0003V41C10.0005 36.9995 16.9995 36.9995 24 41Z\"/><path d=\"M30 16.5C32.8362 15.1345 36.5662 15.06 39.5 16.2763\"/><path d=\"M30 23.5832C32.8362 22.2178 36.5662 22.1432 39.5 23.3596\"/><path d=\"M30 30.6665C32.8362 29.301 36.5662 29.2265 39.5 30.4428\"/></svg>",
-    "rocket-icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"#d95c41\" stroke-miterlimit=\"10\"><path d=\"m13.299,9h-3.891c-.892,0-1.738.397-2.308,1.083l-5.1,6.139,6.31,1.51\"/><path d=\"m23,18.701v3.891c0,.892-.397,1.738-1.083,2.308l-6.139,5.1-1.51-6.31\"/><path d=\"m14.268,23.69c7.986-2.194,14.642-9.015,15.732-21.69-12.675,1.09-19.496,7.746-21.69,15.732l5.958,5.958Z\"/><path d=\"m19,5c4.111,1.389,6.778,4.056,8,8\" stroke-linecap=\"round\"/><circle cx=\"19\" cy=\"13\" r=\"2\" fill=\"currentColor\"/><path d=\"m2,30s.707-4.95,2.121-6.364c1.172-1.172,3.071-1.172,4.243,0s1.172,3.071,0,4.243c-1.414,1.414-6.364,2.121-6.364,2.121Z\"/></svg>",
-    "sparkles-icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#d95c41\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2z\"/><path d=\"M16 6a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2z\"/><path d=\"M9 18a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z\"/></svg>",
-    "gear-icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"#d95c41\" stroke-linecap=\"square\" stroke-miterlimit=\"10\"><g><circle cx=\"16\" cy=\"16\" r=\"5\"/><path d=\"m30,17.5v-3l-3.388-1.355c-.25-.933-.617-1.815-1.089-2.633l1.436-3.351-2.121-2.121-3.351,1.436c-.817-.472-1.7-.838-2.633-1.089l-1.355-3.388h-3l-1.355,3.388c-.933.25-1.815.617-2.633,1.089l-3.351-1.436-2.121,2.121 1.436,3.351c-.472.817-.838,1.7-1.089,2.633l-3.388,1.355v3l3.388,1.355c.25.933.617,1.815,1.089,2.633l-1.436,3.351 2.121,2.121 3.351-1.436c.817.472 1.7.838 2.633,1.089l1.355,3.388h3l1.355-3.388c.933-.25 1.815-.617 2.633-1.089l3.351,1.436 2.121-2.121-1.436-3.351c.472-.817.838-1.7 1.089-2.633l3.388-1.355Z\"/></g></svg>",
-    "shield-check": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#d95c41\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06\"/><path d=\"M15 19l2 2l4 -4\"/></svg>",
-    "globe-icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"#d95c41\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"><g><path d=\"M36.6225 22.1264C34.6145 19.2959 32.3651 15.7913 28.4377 17.3428C24.4307 18.9257 30.0493 23.15 25.2064 26.9189C22.1135 29.3259 22.8515 31.6477 23.9478 33\"/><path d=\"M14 30L15.336 28.0984C16.3999 26.5841 16.557 24.5077 15.7357 22.8151L15.5751 22.4842C14.5131 20.2955 15.1651 17.5604 17.0607 16.253L17.3292 16.0677C18.2109 15.4596 18.808 14.4478 18.9613 13.3023C19.1316 12.0291 18.7338 10.7433 17.8962 9.85981L15.3599 7.24048\"/><path d=\"M23.0628 5C22.3771 9.64991 27.3946 14.948 33.7332 10.0381\"/><path d=\"M23 33C30.732 33 37 26.732 37 19C37 11.268 30.732 5 23 5C15.268 5 9 11.268 9 19C9 26.732 15.268 33 23 33Z\"/></g><path d=\"M23 43V38\"/><path d=\"M16 43H30\"/><path d=\"M38 3.99994L36.435 5.56491C43.855 12.9849 43.855 25.015 36.435 32.435C29.0151 39.8549 16.9849 39.8549 9.56497 32.435L7.99997 34\"/></svg>",
-    "layers-icon": "<svg width=\"28\" height=\"28\" viewBox=\"0 0 120 120\" fill=\"none\" stroke-width=\"1.6\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"44\" y=\"22\" width=\"56\" height=\"36\" rx=\"10\" fill=\"#d95c41\"/><rect x=\"20\" y=\"62\" width=\"64\" height=\"40\" rx=\"12\" fill=\"#d95c41\"/></svg>",
-}
-
 DOCS = [
     ("00-course-map.md", "课程地图", "四阶段学习路径:地基 → 流水线 → 进阶 → 系统深挖。", "导读"),
     ("20-rag-papers.md", "论文与资料", "经典论文 + 2026 最新 + 权威机构实践 + 面试用法。", "导读"),
@@ -170,29 +160,26 @@ def build_home() -> None:
             _m = _re.match(r"(\d+)", Path(filename).stem)
             number = _m.group(1).lstrip("0") if _m else Path(filename).stem.split("-", 1)[0]
             cards.append(
-                f'<a class="chapter-card" href="{page_name(filename)}">'
+                f'<a class="chapter-card chapter-card--flat" href="{page_name(filename)}">'
                 f'<span class="chapter-copy">'
                 f'<strong>{html.escape(title)}</strong><small>{html.escape(description)}</small></span>'
                 '<span class="chapter-arrow" aria-hidden="true">→</span></a>'
             )
-        stage_icons = {"导读": "book-icon", "阶段一 地基": "book-icon", "阶段二 流水线": "rocket-icon", "阶段三 进阶": "sparkles-icon", "阶段四 系统实现": "gear-icon"}
-        icon_svg = ICONS.get(stage_icons.get(group, ""), "")
-        icon_html = f'<span class="stage-icon">{icon_svg}</span>' if icon_svg else ''
         sections.append(
-            f'<section class="volume"><header>{icon_html}<span>{group}</span><h2>{subtitle}</h2></header>{"".join(cards)}</section>'
+            f'<section class="volume"><header><span>{group}</span><h2>{subtitle}</h2></header>{"".join(cards)}</section>'
         )
     body = f"""
 <header class="hero">
   <div class="hero-art" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="hero-content">
-    <div class="hero-badge">{ICONS["shield-check"]}<span>RAG 源码课程 · 18 课</span></div>
+    <div class="hero-badge">RAG 源码课程 · 18 课</div>
     <h1>WeKnora RAG<br><em>从源码系统学 RAG</em></h1>
     <p class="hero-subtitle">从腾讯开源 WeKnora 源码出发，逐环节拆解 RAG 流水线<br>与完整系统实现</p>
     <blockquote class="hero-quote">
       <p>RAG 的本质：不是把所有知识塞给模型，而是给它此刻最需要的几块。</p>
       <cite>you can outsource your thinking, but you cannot outsource your understanding</cite>
     </blockquote>
-    <p class="hero-meta"><span class="meta-item">{ICONS["book-icon"]}18 课</span><span class="meta-item">{ICONS["layers-icon"]}四阶段学习路径</span><span class="meta-item">{ICONS["globe-icon"]}源码逐环节拆解</span></p>
+    <p class="hero-meta">18 课 · 四阶段学习路径 · 源码逐环节拆解</p>
     <a class="hero-cta" href="{page_name('00-course-map.md')}">开始阅读 <span>→</span></a>
   </div>
   <a class="scroll-hint" href="#contents"><span>目录</span><i></i></a>
